@@ -13,10 +13,10 @@ import java.util.UUID;
 public class AlunoService {
 	@Autowired
 	private AlunoRepository repository;
-	public void criar(Aluno aluno){
+	public void criar(Aluno aluno) {
 		this.repository.save(aluno);
 	}
-	public Optional<Aluno> getAluno(UUID id){
+	public Optional<Aluno> getAluno(UUID id) {
 		return this.repository.findById(id);
 	}
 	public List<Aluno> getTodosAlunos() {

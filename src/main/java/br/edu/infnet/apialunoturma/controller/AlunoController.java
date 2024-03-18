@@ -19,13 +19,13 @@ public class AlunoController {
 	private AlunoService service;
 	@GetMapping
 	public ResponseEntity<List<Aluno>> getTodosAlunos() {
-		List<Aluno> aluno = this.service.getTodosAlunos();
-		return new ResponseEntity<>(aluno, HttpStatus.OK);
+		List<Aluno> alunos = this.service.getTodosAlunos();
+		return new ResponseEntity<>(alunos, HttpStatus.OK);
 	}
 	@GetMapping("{id}")
 	public ResponseEntity<Aluno> get(@PathVariable("id")UUID id) {
 		return this.service.getAluno(id).map(aluno -> {
-			return new ResponseEntity<Aluno>(aluno, HttpStatus.OK);
+			return new ResponseEntity<>(aluno, HttpStatus.OK);
 		}).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
 	@PostMapping
